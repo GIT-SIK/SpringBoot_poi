@@ -22,11 +22,27 @@ repositories {
 }
 
 dependencies {
+
+	// web, thymeleaf
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// lombok
+
 	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
+
+	// poi
+	implementation group: 'org.apache.poi', name: 'poi', version: '5.2.3'
+	implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '5.2.3'
+
+	// common-io
+	implementation group: 'commons-io', name: 'commons-io', version: '2.13.0'
+
+	// dev
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	// test
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
