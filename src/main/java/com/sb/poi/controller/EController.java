@@ -30,11 +30,9 @@ public class EController {
     }
 
     @PostMapping("/e/read")
-    public String readExcel(@RequestParam("file") MultipartFile file, Model model)
-            throws IOException {
+    public String readExcel(@RequestParam("file") MultipartFile file, Model model)throws IOException {
 
         List<EData> dataList = new ArrayList<>();
-
         String extension = FilenameUtils.getExtension(file.getOriginalFilename());
 
         if (!extension.equals("xlsx") && !extension.equals("xls")) {
@@ -53,20 +51,15 @@ public class EController {
 
         /* COL ROW */
         for (int i = 4; i < worksheet.getPhysicalNumberOfRows(); i++) {
-
             Row row = worksheet.getRow(i);
-
             EData data = new EData();
 
            // data.setNum((int) row.getCell(0).getNumericCellValue());
              data.setName(row.getCell(2).getStringCellValue());
 
-
             dataList.add(data);
         }
-
         model.addAttribute("datas", dataList);
-
         return "eList";
     }
 }
