@@ -5,9 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LIST</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
+    <style>
+        tr, td {
+            padding : 0;
+        }
+        input {
+            border : 1px solid #000000;
+        }
+    </style>
+    <script>
+        function changeInput(obj){
+            obj.style.border = "1px solid #FF0000";
+        }
+    </script>
 </head>
 <body>
-<table class="table table-striped">
+<table>
     <thead>
     <tr>
         <th scope="col">#</th>
@@ -15,7 +28,7 @@
     </thead>
     <tbody>
     <tr th:each="data : ${datas}">
-        <td th:text="${data.name}"></td>
+        <td><input type="text" th:value="${data.name}" onchange="changeInput(this)"> </td>
     </tr>
     </tbody>
 </table>
